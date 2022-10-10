@@ -20,6 +20,7 @@ class Login extends HookWidget {
                   labelText: 'Email',
                   hintText: 'Enter your email',
                 ),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _emailController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -41,6 +42,7 @@ class Login extends HookWidget {
                   labelText: 'Password',
                   hintText: 'Enter your Password',
                 ),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _passwordController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -58,7 +60,7 @@ class Login extends HookWidget {
           ElevatedButton(
               onPressed: () {
                 if (_emailController.text.isNotEmpty &&
-                    _passwordController.text.isNotEmpty) {
+                    _passwordController.text.length > 7) {
                   Get.to(home());
                 }
               },
